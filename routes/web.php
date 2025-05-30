@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoodController;
+use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\DaftarPsikologController;
+use App\Http\Controllers\HasilKonsultasiController;
 use App\Http\Controllers\TespsikologiController;
 
 
@@ -32,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
+	Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 	Route::get('billing', function () {
 		return view('billing');
@@ -95,4 +99,11 @@ Route::get('/mood', [MoodController::class, 'index'])->name('mood');
 Route::post('/mood', [MoodController::class, 'store'])->name('mood.store');
 
 Route::get('/tespsikologi', [TespsikologiController::class, 'index'])->name('tespsikologi');
-Route::post('/tespsikologi', [TespsikologiController::class, 'submit'])->name('tespsikologi.submit');
+Route::post('/tespsikologi', [TespsikologiController::class, 'store'])->name('tespsikologi.store');
+
+Route::get('/konsultasi', [HasilKonsultasiController::class, 'index'])->name('konsultasi.index');
+Route::post('/konsultasi', [HasilKonsultasiController::class, 'store'])->name('konsultasi.store');
+
+Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel.index');
+
+Route::get('/psikolog', [DaftarPsikologController::class, 'index'])->name('psikolog.index');
