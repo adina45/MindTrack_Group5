@@ -102,5 +102,16 @@ Route::get('/konsultasi', [PsikologController::class, 'index'])->name('psikolog'
 
 Route::get('/psikolog-konsultasi/{nama}', [PsikologController::class, 'psikologKonsultasi'])->name('psikolog_konsultasi');
 
+Route::get('/', function () {
+    return view('landing');
+})->name('landing'); // <- route ini tidak memerlukan login
+
+Route::get('/login', function () {
+    return view('view.session.login-session');
+})->name('login');
+
+
+Route::get('/login', [SessionsController::class, 'showLogin'])->name('login');
+
 
 

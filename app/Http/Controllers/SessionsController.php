@@ -38,4 +38,10 @@ class SessionsController extends Controller
 
         return redirect('/login')->with(['success'=>'You\'ve been logged out.']);
     }
+
+    public function showLogin()
+{
+    return view('session.login-session');
+}
+
 }

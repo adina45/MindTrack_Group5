@@ -50,9 +50,9 @@
   @auth
     @yield('auth')
   @endauth
-  @guest
+  
     @yield('guest')
-  @endguest
+  
 
   @if(session()->has('success'))
     <div x-data="{ show: true}"
