@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MoodController;
 use App\Http\Controllers\TespsikologiController;
-
-
+use App\Http\Controllers\PsikologController;
+use App\Models\Psikolog;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,3 +96,11 @@ Route::post('/mood', [MoodController::class, 'store'])->name('mood.store');
 
 Route::get('/tespsikologi', [TespsikologiController::class, 'index'])->name('tespsikologi');
 Route::post('/tespsikologi', [TespsikologiController::class, 'submit'])->name('tespsikologi.submit');
+
+
+Route::get('/konsultasi', [PsikologController::class, 'index'])->name('psikolog');
+
+Route::get('/psikolog-konsultasi/{nama}', [PsikologController::class, 'psikologKonsultasi'])->name('psikolog_konsultasi');
+
+
+
