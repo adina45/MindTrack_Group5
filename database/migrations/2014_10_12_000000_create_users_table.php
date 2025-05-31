@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('about_me')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            // $table->integer('role')->default(0); //0 - users/ customer & 1 for our admin
         });
     }
 

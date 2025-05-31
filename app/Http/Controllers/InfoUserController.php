@@ -10,10 +10,19 @@ use Illuminate\Support\Facades\View;
 
 class InfoUserController extends Controller
 {
-
+    
     public function create()
     {
-        return view('laravel-examples/user-profile');
+        $user = Auth::user();
+
+        // Tampilkan view berdasarkan role
+        if ($user->role == 2) {
+            // Role 2 = Psikolog
+            return view('laravel-examples.psikolog-profile', compact('user'));
+        }
+
+        // Role default = Pasien
+        return view('laravel-examples.user-profile', compact('user'));
     }
 
     public function store(Request $request)
@@ -54,4 +63,7 @@ class InfoUserController extends Controller
 
         return redirect('/user-profile')->with('success','Profile updated successfully');
     }
+
+    
+
 }

@@ -47,9 +47,19 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-100 {{ (\Request::is('rtl') ? 'rtl' : (Request::is('virtual-reality') ? 'virtual-reality' : '')) }} ">
+  
   @auth
+    @if(auth()->user()->role == 1)
+        @include('layouts.navbars.auth.adminsidebar')
+    @elseif(auth()->user()->role == 2)
+        @include('layouts.navbars.auth.psikologsidebar')
+    @else
+        @include('layouts.navbars.auth.sidebar')
+    @endif
+
     @yield('auth')
   @endauth
+
   @guest
     @yield('guest')
   @endguest

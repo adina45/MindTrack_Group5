@@ -23,7 +23,19 @@ class SessionsController extends Controller
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
-            return redirect('dashboard')->with(['success'=>'You are logged in.']);
+            $role = Auth::user()->role;
+
+            switch ($role) {
+                case 0:
+                    return redirect()->route('dashboard')->with('success', 'Login berhasil');
+                case 1:
+                    return redirect()->route('admin.dashboardadmin')->with('success', 'Anda login sebagai Admin.');
+                case 2:
+                    return redirect()->route('psikolog.dashboardpsikolog')->with('success', 'Anda login sebagai Psikolog.');
+                default:
+                    Auth::logout();
+                    return redirect()->route('login')->withErrors(['role' => 'Role tidak dikenali.']);
+        }
         }
         else{
 
