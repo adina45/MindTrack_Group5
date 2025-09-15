@@ -53,13 +53,13 @@
       <li class="nav-item pb-2">
         <a class="nav-link {{ (Request::is('tespsikologi') ? 'active' : '') }}" href="{{ url('tespsikologi') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('tespsikologi') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fas fa-brain{{ (Request::is('tespsikologi') ? 'text-white' : 'text-dark') }}" aria-hidden="true"></i>
             </div>
             <span class="nav-link-text ms-1">Tes Psikologi</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('konsultasi') ? 'active' : '') }} " href="{{ url('konsultasi') }}">
+        <a class="nav-link {{ (Request::is('psikolog') ? 'active' : '') }} " href="{{ route('psikolog') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <title>user-support</title>
@@ -76,7 +76,7 @@
                     </g>
                 </svg>
             </div>
-            <span class="nav-link-text ms-1">Konsultasi</span>
+            <span class="nav-link-text ms-1">konsultasi</span>
         </a>
       </li>
       <li class="nav-item mt-2">

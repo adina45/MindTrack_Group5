@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MoodModel; // <--- pastikan pakai MoodModel
+use App\Models\MoodModel;
 use Illuminate\Http\Request;
 
 class MoodController extends Controller
@@ -12,18 +12,16 @@ class MoodController extends Controller
     }
 
     public function store(Request $request){
-        //dd($request->all());
         $request->validate([
-            'mood' => 'required',
+            'mood' => 'required|string',
+            'note' => 'nullable|string',
         ]);
 
-        // Simpan ke database
         MoodModel::create([
             'mood' => $request->mood,
-            'note' => $request->note, // jika ada input note
+            'note' => $request->note,
         ]);
 
         return back()->with('success', 'Mood kamu hari ini: ' . $request->mood);
     }
 }
-

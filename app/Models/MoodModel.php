@@ -9,7 +9,6 @@ class MoodModel extends Model
 {
     use HasFactory;
 
-    protected $table = ['moods'];
+    protected $table = 'moods'; // <- ini yang diperbaiki
     protected $fillable = ['mood', 'note'];
-    
 }
